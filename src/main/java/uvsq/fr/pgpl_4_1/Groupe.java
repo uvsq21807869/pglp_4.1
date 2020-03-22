@@ -2,15 +2,16 @@ package uvsq.fr.pgpl_4_1;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Groupe  extends Team {
 
 			private final String nom;
-			private ArrayList<Personnel> list;
+			private List<Team> list;
 			
 			
 			public Groupe(String nom) {
-				list = new ArrayList<Personnel>(); 
+				list = new ArrayList<Team>(); 
 				this.nom = nom;	
 			}
 			
