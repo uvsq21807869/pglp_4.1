@@ -2,6 +2,7 @@ package uvsq.fr.pgpl_4_1;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Personnel {
 	private final String nom;
@@ -72,6 +73,11 @@ public class Personnel {
 
 	public LocalDate getDateNaiss() {
 		return dateNaissance;
+	}
+	public ArrayList<String> getTel(){
+		
+		return (ArrayList<String>) Collections.unmodifiableList(this.numeroTel);
+		
 	}
 
 	public void print(){
