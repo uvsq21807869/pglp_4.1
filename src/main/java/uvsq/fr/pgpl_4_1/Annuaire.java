@@ -1,12 +1,11 @@
 package uvsq.fr.pgpl_4_1;
 
 import java.util.Iterator;
-import java.util.List;
 
 public class Annuaire implements Iterable<Team>{
 
 	private static Annuaire ANNUAIRE;
-	public List<Team> annuaire; 
+	
 	private TeamIterator<Team> head;
 
 	
