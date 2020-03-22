@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Personnel {
+public class Personnel extends Team{
 	private final String nom;
 	private final String prenom;
 	private final String fonction;
