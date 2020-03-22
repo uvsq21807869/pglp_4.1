@@ -1,5 +1,6 @@
 package uvsq.fr.pgpl_4_1;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -16,5 +17,13 @@ public class AppTest
     public void shouldAnswerWithTrue()
     {
         assertTrue( true );
+    }
+    @Test
+    public void testPersonnel() {
+    	
+    	Personnel p1 = new Personnel.Builder("amina", "ayachi", "doctor").build();
+    	
+    	assertEquals("amina", p1.getNom());
+    	
     }
 }

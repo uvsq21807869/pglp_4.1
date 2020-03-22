@@ -6,10 +6,9 @@ import java.util.ArrayList;
 public class Personnel {
 	private final String nom;
 	private final String prenom;
-	private final int ID;
-  
-	private LocalDate dateNaiss;
-	private final ArrayList<Integer> numeroTel;
+	private final String fonction;
+	private final java.time.LocalDate dateNaissance;
+	private final ArrayList<String> numeroTel;
 	
 
 	
@@ -17,28 +16,31 @@ public class Personnel {
 
 		private final String nom;
 		private final String prenom;
-        private final int ID;
-                    
-		private LocalDate dateNaiss;
-		private ArrayList<Integer>  numeroTel;
+		private final String fonction;
+		private  java.time.LocalDate dateNaissance = java.time.LocalDate.now();
+		private ArrayList<String>  numeroTel;
 		
 		
-		public Builder(String nom, String prenom, int ID ) {
+		public Builder(String nom, String prenom, String fonction) {
 			this.nom = nom;
 			this.prenom = prenom;
-			this.ID = ID;
+			this.fonction = fonction;
 			
 		}
                     
-                    public Builder dateNaiss(int annee, int mois, int jour){
-                        this.dateNaiss = LocalDate.of(annee, mois, jour);
-                        return this; 
-                    }
+		public Builder updatePhoneList(ArrayList<String> phone) {
+			
+			this.numeroTel = phone;
+			
+			return this;
+		}
 		
-                    public Builder numeroTel(int numeroTel){
-                        this.numeroTel.add(numeroTel);
-                        return this;
-                    }
+		public Builder updateDateNaissance(java.time.LocalDate t) {
+			
+			this.dateNaissance = t;
+			
+			return this;
+		}
                     
 		public Personnel build() {
 			return new Personnel(this);
@@ -49,14 +51,11 @@ public class Personnel {
 
 	
 	private Personnel(Builder builder) {
-		nom = builder.nom;
-		prenom = builder.prenom;
-        ID = builder.ID;
-                    
-		dateNaiss = builder.dateNaiss;
-		numeroTel = builder.numeroTel;
-		
-		
+		this.fonction = builder.fonction;
+		this.nom = builder.nom;
+		this.prenom = builder.prenom;
+		this.dateNaissance = builder.dateNaissance;
+		this.numeroTel = builder.numeroTel;
 	}
 
 	public String getNom() {
@@ -67,26 +66,16 @@ public class Personnel {
 		return prenom;
 	}
 
-	public ArrayList<Integer> getNumeroTel() {
+	public ArrayList<String> getNumeroTel() {
 		return numeroTel;
 	}
 
 	public LocalDate getDateNaiss() {
-		return dateNaiss;
+		return dateNaissance;
 	}
-
-	public int getID() {
-		return ID;
-	}
-	
-	@Override
-    public String toString(){
-        String str = "ID : " + this.ID;
-        return str;
-    }
 
 	public void print(){
-        System.out.println("les infdormtion du personnel sont :  "  +this.ID
+        System.out.println("les infdormtion du personnel sont :  "  +this.fonction
                 + "  " + this.nom +  "  " + this.prenom);
         
     }
